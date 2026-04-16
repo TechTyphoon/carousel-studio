@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Carousel Studio
+
+A social media creative studio that turns a rough idea into a polished, ready-to-post carousel.
+
+Type something like *"Carousel for parents about why kids forget what they learn — explain the forgetting curve — end with how spaced repetition fixes it"* and get back a multi-slide carousel ready to download.
+
+## Features
+
+- **Idea to visual** — describe a topic in plain language, get a structured carousel with hook, explanation, insight, and CTA slides
+- **Formats** — Instagram Post (1:1) and Story (9:16)
+- **AI image generation** — each slide gets a matching AI-generated visual via Pollinations
+- **6 themes** — Vibrant, Cuemath, Ocean, Sunset, Minimal, Forest
+- **Editable** — click any slide to tweak copy, then regenerate or save
+- **Export** — download individual slides or the entire deck as PNG
+
+## Tech Stack
+
+- Next.js 16 (App Router, Turbopack)
+- React 19, TypeScript 5, Tailwind CSS 4
+- Pollinations API (text + image generation, no key required)
+- OpenRouter / OpenAI / HuggingFace / Together / xAI / Gemini (optional, via BYOK)
+- html-to-image for PNG export
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env` and fill in any keys you want to use. All are optional — the app falls back to Pollinations (free, no key needed).
 
-## Learn More
+```bash
+cp .env.example .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+vercel --prod
+```
